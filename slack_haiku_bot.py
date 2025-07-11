@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify
-import openai
 import os
+from flask import Flask, request, jsonify
+from openai import OpenAI
 
 app = Flask(__name__)
-client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route('/haiku', methods=['POST'])
 def haiku():
